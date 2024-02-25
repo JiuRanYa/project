@@ -1,19 +1,24 @@
-import { createHead } from '@vueuse/head'
-import { createPinia } from 'pinia'
-import { createApp, markRaw } from 'vue'
-import App from './App.vue'
-import './assets/index.postcss'
-import router from './router'
+import { createHead } from "@vueuse/head";
+import { createPinia } from "pinia";
+import { createApp, markRaw } from "vue";
+import App from "./App.vue";
+import Antd from "ant-design-vue";
+import router from "./router";
 
-const head = createHead()
-const app = createApp(App)
+import "./assets/index.postcss";
+import "ant-design-vue/dist/reset.css";
 
-const pinia = createPinia()
+const head = createHead();
+const app = createApp(App);
+
+const pinia = createPinia();
 pinia.use(({ store }) => {
-  store.router = markRaw(router)
-})
-app.use(pinia)
-app.use(router)
-app.use(head)
+  store.router = markRaw(router);
+});
 
-app.mount('#app')
+app.use(Antd);
+app.use(pinia);
+app.use(router);
+app.use(head);
+
+app.mount("#app");

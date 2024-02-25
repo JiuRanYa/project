@@ -1,28 +1,23 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {
+  createRouter,
+  createWebHistory,
+  type RouteRecordRaw,
+} from "vue-router";
 
-import IndexPage from '@/pages/IndexPage.vue'
-import DemoPage from '@/pages/DemoPage.vue'
-
-const routes = [
+const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    component: IndexPage,
-    meta: {
-      title: 'Vite + Vue + TypeScript + Tailwind Starter Template',
-    },
+    path: "/",
+    redirect: "/sql-table",
   },
   {
-    path: '/demo/',
-    component: DemoPage,
-    meta: {
-      title: 'Demo title',
-    },
+    path: "/sql-table",
+    component: () => import("@/pages/sql-table/index.vue"),
   },
-]
+];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
-})
+});
 
-export default router
+export default router;
