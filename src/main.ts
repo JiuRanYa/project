@@ -7,6 +7,7 @@ import router from "./router";
 
 import "./assets/index.postcss";
 import "ant-design-vue/dist/reset.css";
+import ApiService from "./api/ApiService";
 
 const head = createHead();
 const app = createApp(App);
@@ -16,6 +17,10 @@ pinia.use(({ store }) => {
   store.router = markRaw(router);
 });
 
+// api service
+ApiService.init(app);
+
+// plugins
 app.use(Antd);
 app.use(pinia);
 app.use(router);

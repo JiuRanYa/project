@@ -51,6 +51,7 @@
 </template>
 
 <script setup lang="ts">
+import ApiService from "@/api/ApiService";
 import MainTable from "./main-table/index.vue";
 import SubTableOne from "./sub-table/sub-table1.vue";
 import SubTableTwo from "./sub-table/sub-table2.vue";
@@ -73,20 +74,37 @@ const subTableInbound = ref();
 const subTableMater = ref();
 
 const subTableMap = ref();
+const tableFieldMap = reactive({
+  1: "ecLabels",
+  2: "ecMaterialQualityTrack",
+  3: "ecMaterialRestrictions",
+  4: "ecOperationGuide",
+  5: "ecProductionStage",
+  6: "ecSoftwareVersions",
+  7: "ecSpecifiedInbound",
+  8: "ecSubstituteMaterial",
+}) as any;
 
 async function onClick() {
-  // const mainFormData = await mainTable.value.mainForm.validate();
-  // console.log(mainFormData);
-  for (let i = 1; i <= 8; i++) {
+  let resData: any = {};
+  const mainFormData = await mainTable.value.mainForm.validate();
+  resData = { ...mainFormData };
+
+  for (let i = 1; i <= 1; i++) {
     try {
       const subForm = (subTableMap.value as any)[i];
       const subFormData = await subForm.subForm.validate();
-      console.log(subFormData);
+
+      const fieldName = tableFieldMap[`${i}`];
+      resData[fieldName] = subFormData;
     } catch (e) {
       activeKey.value = `${i}`;
       break;
     }
   }
+
+  const res = await ApiService.post("ecManager/add", resData);
+  console.log(res);
 }
 
 onMounted(() => {
