@@ -38,9 +38,7 @@
           <a-form-item
             label="title"
             name="title"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
+            :rules="[{ required: true, message: 'Please input your title!' }]"
           >
             <a-input v-model:value="formState.title" />
           </a-form-item>
@@ -53,7 +51,7 @@
             label="downloadBy"
             name="downloadBy"
             :rules="[
-              { required: true, message: 'Please input your password!' },
+              { required: true, message: 'Please input your downloadBy!' },
             ]"
           >
             <a-input v-model:value="formState.downloadBy" />
@@ -65,10 +63,10 @@
             label="downloadOn"
             name="downloadOn"
             :rules="[
-              { required: true, message: 'Please input your password!' },
+              { required: true, message: 'Please input your downloadOn!' },
             ]"
           >
-            <a-input v-model:value="formState.downloadOn" />
+            <a-input v-model:value="formState.site" />
           </a-form-item>
         </a-col>
       </a-row>
@@ -78,11 +76,13 @@
           <a-form-item
             label="site"
             name="site"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
+            :rules="[{ required: true, message: 'Please input your site!' }]"
           >
-            <a-input v-model:value="formState.site" />
+            <a-select v-model:value="formState.site">
+              <a-select-option value="LD">LD</a-select-option>
+              <a-select-option value="XG">XG</a-select-option>
+              <a-select-option value="SZ">SZ</a-select-option>
+            </a-select>
           </a-form-item>
         </a-col>
       </a-row>
