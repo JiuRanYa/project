@@ -1,4 +1,3 @@
-
 <template>
   <div class="p-4">
     <a-form
@@ -10,7 +9,7 @@
       @finishFailed="onFinishFailed"
     >
       <a-row :gutter="120">
-        <a-col :span="10">
+        <a-col :span="12">
           <a-form-item
             label="id"
             name="id"
@@ -20,7 +19,7 @@
           </a-form-item>
         </a-col>
 
-        <a-col :span="10">
+        <a-col :span="12">
           <a-form-item
             label="ecno"
             name="ecno"

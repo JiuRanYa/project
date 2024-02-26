@@ -15,6 +15,7 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "^7.0.1",
     "@vueuse/head": "2.0.0",
     "ant-design-vue": "4.x",
     "pinia": "2.1.7",

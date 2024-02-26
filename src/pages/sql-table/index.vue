@@ -1,10 +1,11 @@
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col content-center">
     <section class="main-table">
       <h2 class="text-sm">Main_Manager</h2>
 
       <MainTable></MainTable>
     </section>
+
     <section>
       <a-tabs v-model:activeKey="activeKey" size="small">
         <a-tab-pane key="1" tab="Sub table 1">
@@ -32,6 +33,13 @@
           <SubTableEight />
         </a-tab-pane>
       </a-tabs>
+    </section>
+
+    <section>
+      <div class="flex flex-row justify-center">
+        <a-button>取消</a-button>
+        <a-button class="ms-10" type="primary">确定</a-button>
+      </div>
     </section>
   </div>
 </template>

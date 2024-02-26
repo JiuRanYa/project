@@ -76,7 +76,7 @@
             name="process"
             :rules="[{ required: true, message: 'Please input your process!' }]"
           >
-            <a-input v-model:value="formState.ecStatus" />
+            <a-input v-model:value="formState.process" />
           </a-form-item>
         </a-col>
       </a-row>
@@ -84,13 +84,21 @@
       <a-row :gutter="120">
         <a-col :span="20">
           <a-form-item
-            label="modifyBy"
-            name="modifyBy"
+            label="attachedTo"
+            name="attachedTo"
             :rules="[
-              { required: true, message: 'Please input your password!' },
+              { required: true, message: 'Please input your attachedTo!' },
             ]"
           >
-            <a-input v-model:value="formState.modifyBy" />
+            <a-upload
+              action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+              directory
+            >
+              <a-button>
+                <upload-outlined></upload-outlined>
+                Upload Directory
+              </a-button>
+            </a-upload>
           </a-form-item>
         </a-col>
       </a-row>
@@ -99,6 +107,7 @@
 </template>
 <script lang="ts" setup>
 import { reactive } from "vue";
+import { UploadOutlined } from "@ant-design/icons-vue";
 
 interface FormState {
   id: string;
