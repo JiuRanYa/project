@@ -1,36 +1,36 @@
 <template>
   <div class="flex flex-col content-center">
     <section class="main-table">
-      <h2 class="text-sm">Main_Manager</h2>
+      <h2 class="text-sm">EC_Manager</h2>
 
       <MainTable ref="mainTable"></MainTable>
     </section>
 
     <section>
       <a-tabs v-model:activeKey="activeKey" size="small">
-        <a-tab-pane key="1" tab="Sub table 1">
-          <SubTableOne ref="subTable" />
+        <a-tab-pane forceRender key="1" tab="Labels">
+          <SubTableOne ref="subTableLabel" />
         </a-tab-pane>
-        <a-tab-pane key="2" tab="Sub table 1">
-          <SubTableTwo ref="subTable" />
+        <a-tab-pane forceRender key="2" tab="Material_quality_track">
+          <SubTableTwo ref="subTableTrack" />
         </a-tab-pane>
-        <a-tab-pane key="3" tab="Sub table 1">
-          <SubTableThree ref="subTable" />
+        <a-tab-pane forceRender key="3" tab="Material_Restrictions">
+          <SubTableThree ref="subTableRest" />
         </a-tab-pane>
-        <a-tab-pane key="4" tab="Sub table 1">
-          <SubTableFour ref="subTable" />
+        <a-tab-pane forceRender key="4" tab="Operation_Guide">
+          <SubTableFour ref="subTableGuide" />
         </a-tab-pane>
-        <a-tab-pane key="5" tab="Sub table 1">
-          <SubTableFive ref="subTable" />
+        <a-tab-pane forceRender key="5" tab="Production_Stage">
+          <SubTableFive ref="subTableStage" />
         </a-tab-pane>
-        <a-tab-pane key="6" tab="Sub table 1">
-          <SubTableSix ref="subTable" />
+        <a-tab-pane forceRender key="6" tab="Software_Versions">
+          <SubTableSix ref="subTableVersion" />
         </a-tab-pane>
-        <a-tab-pane key="7" tab="Sub table 1">
-          <SubTableSeven ref="subTable" />
+        <a-tab-pane forceRender key="7" tab="Specified_Inbound">
+          <SubTableSeven ref="subTableInbound" />
         </a-tab-pane>
-        <a-tab-pane key="8" tab="Sub table 1">
-          <SubTableEight ref="subTable" />
+        <a-tab-pane forceRender key="8" tab="Substitute_Material">
+          <SubTableEight ref="subTableMater" />
         </a-tab-pane>
       </a-tabs>
     </section>
@@ -63,12 +63,44 @@ import SubTableEight from "./sub-table/sub-table8.vue";
 
 const activeKey = ref();
 const mainTable = ref();
-const subTable = ref();
+const subTableLabel = ref();
+const subTableTrack = ref();
+const subTableRest = ref();
+const subTableGuide = ref();
+const subTableStage = ref();
+const subTableVersion = ref();
+const subTableInbound = ref();
+const subTableMater = ref();
+
+const subTableMap = ref();
 
 async function onClick() {
   // const mainFormData = await mainTable.value.mainForm.validate();
   // console.log(mainFormData);
-  const subFormData = await subTable.value.subForm.validate();
-  console.log(subFormData);
+  for (let i = 1; i <= 8; i++) {
+    try {
+      const subForm = (subTableMap.value as any)[i];
+      const subFormData = await subForm.subForm.validate();
+      console.log(subFormData);
+    } catch (e) {
+      activeKey.value = `${i}`;
+      break;
+    }
+  }
 }
+
+onMounted(() => {
+  nextTick(() => {
+    subTableMap.value = {
+      1: subTableLabel,
+      2: subTableTrack,
+      3: subTableRest,
+      4: subTableGuide,
+      5: subTableStage,
+      6: subTableVersion,
+      7: subTableInbound,
+      8: subTableMater,
+    };
+  });
+});
 </script>

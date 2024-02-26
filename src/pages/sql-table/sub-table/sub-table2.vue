@@ -1,7 +1,7 @@
 <template>
   <div class="p-4">
     <a-form
-			ref="subForm"
+      ref="subForm"
       :model="formState"
       name="basic"
       :label-col="{ style: { width: 100 } }"
@@ -9,56 +9,6 @@
       @finish="onFinish"
       @finishFailed="onFinishFailed"
     >
-      <a-row :gutter="120">
-        <a-col :span="10">
-          <a-form-item
-            label="id"
-            name="id"
-            :rules="[{ required: true, message: 'Please input your id!' }]"
-          >
-            <a-input v-model:value="formState.id" />
-          </a-form-item>
-        </a-col>
-
-        <a-col :span="10">
-          <a-form-item
-            label="parentId"
-            name="parentId"
-            :rules="[
-              { required: true, message: 'Please input your parentId!' },
-            ]"
-          >
-            <a-input v-model:value="formState.parentId" />
-          </a-form-item>
-        </a-col>
-      </a-row>
-
-      <a-row :gutter="120">
-        <a-col :span="10">
-          <a-form-item
-            label="trackingNo"
-            name="trackingNo"
-            :rules="[
-              { required: true, message: 'Please input your trackingNo!' },
-            ]"
-          >
-            <a-input v-model:value="formState.trackingNo" />
-          </a-form-item>
-        </a-col>
-
-        <a-col :span="20">
-          <a-form-item
-            label="descriptions"
-            name="descriptions"
-            :rules="[
-              { required: true, message: 'Please input your descriptions!' },
-            ]"
-          >
-            <a-textarea v-model:value="formState.descriptions" />
-          </a-form-item>
-        </a-col>
-      </a-row>
-
       <a-row :gutter="120">
         <a-col :span="10">
           <a-form-item
@@ -221,7 +171,7 @@
               },
             ]"
           >
-            <a-input v-model:value="formState.substitutelItemDes" />
+            <a-input v-model:value="formState.assignmentQty" />
           </a-form-item>
         </a-col>
       </a-row>
@@ -242,6 +192,31 @@
           </a-form-item>
         </a-col>
       </a-row>
+      <a-row :gutter="120">
+        <a-col :span="24">
+          <a-form-item
+            label="trackingNo"
+            name="trackingNo"
+            :rules="[
+              { required: true, message: 'Please input your trackingNo!' },
+            ]"
+          >
+            <a-input v-model:value="formState.trackingNo" />
+          </a-form-item>
+        </a-col>
+
+        <a-col :span="24">
+          <a-form-item
+            label="descriptions"
+            name="descriptions"
+            :rules="[
+              { required: true, message: 'Please input your descriptions!' },
+            ]"
+          >
+            <a-textarea v-model:value="formState.descriptions" />
+          </a-form-item>
+        </a-col>
+      </a-row>
     </a-form>
   </div>
 </template>
@@ -249,8 +224,8 @@
 import { reactive } from "vue";
 
 interface FormState {
-  id: string;
-  parentId: string;
+  id?: string;
+  parentId?: string;
   trackingNo: string;
   descriptions: string;
   trackingItemCode: string;
@@ -268,8 +243,6 @@ interface FormState {
 }
 
 const formState = reactive<FormState>({
-  id: "",
-  parentId: "",
   trackingNo: "",
   descriptions: "",
   trackingItemCode: "",
@@ -293,9 +266,9 @@ const onFinish = (values: any) => {
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
 };
-const subForm = ref()
+const subForm = ref();
 
 defineExpose({
-	subForm
-})
+  subForm,
+});
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="p-4">
     <a-form
-			ref="subForm"
+      ref="subForm"
       :model="formState"
       name="basic"
       :label-col="{ style: { width: 100 } }"
@@ -9,30 +9,6 @@
       @finish="onFinish"
       @finishFailed="onFinishFailed"
     >
-      <a-row :gutter="120">
-        <a-col :span="12">
-          <a-form-item
-            label="id"
-            name="id"
-            :rules="[{ required: true, message: 'Please input your id!' }]"
-          >
-            <a-input v-model:value="formState.id" />
-          </a-form-item>
-        </a-col>
-
-        <a-col :span="12">
-          <a-form-item
-            label="parentId"
-            name="parentId"
-            :rules="[
-              { required: true, message: 'Please input your parentId!' },
-            ]"
-          >
-            <a-input v-model:value="formState.parentId" />
-          </a-form-item>
-        </a-col>
-      </a-row>
-
       <a-row :gutter="120">
         <a-col :span="12">
           <a-form-item
@@ -264,9 +240,9 @@ const onFinish = (values: any) => {
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
 };
-const subForm = ref()
+const subForm = ref();
 
 defineExpose({
-	subForm
-})
+  subForm,
+});
 </script>
