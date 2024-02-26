@@ -1,6 +1,7 @@
 <template>
   <div class="p-4">
     <a-form
+			ref="subForm"
       :model="formState"
       name="basic"
       :label-col="{ style: { width: 100 } }"
@@ -292,4 +293,9 @@ const onFinish = (values: any) => {
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
 };
+const subForm = ref()
+
+defineExpose({
+	subForm
+})
 </script>

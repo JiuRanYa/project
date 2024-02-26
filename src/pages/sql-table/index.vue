@@ -3,42 +3,48 @@
     <section class="main-table">
       <h2 class="text-sm">Main_Manager</h2>
 
-      <MainTable></MainTable>
+      <MainTable ref="mainTable"></MainTable>
     </section>
 
     <section>
       <a-tabs v-model:activeKey="activeKey" size="small">
         <a-tab-pane key="1" tab="Sub table 1">
-          <SubTableOne />
+          <SubTableOne ref="subTable" />
         </a-tab-pane>
         <a-tab-pane key="2" tab="Sub table 1">
-          <SubTableTwo />
+          <SubTableTwo ref="subTable" />
         </a-tab-pane>
         <a-tab-pane key="3" tab="Sub table 1">
-          <SubTableThree />
+          <SubTableThree ref="subTable" />
         </a-tab-pane>
         <a-tab-pane key="4" tab="Sub table 1">
-          <SubTableFour />
+          <SubTableFour ref="subTable" />
         </a-tab-pane>
         <a-tab-pane key="5" tab="Sub table 1">
-          <SubTableFive />
+          <SubTableFive ref="subTable" />
         </a-tab-pane>
         <a-tab-pane key="6" tab="Sub table 1">
-          <SubTableSix />
+          <SubTableSix ref="subTable" />
         </a-tab-pane>
         <a-tab-pane key="7" tab="Sub table 1">
-          <SubTableSeven />
+          <SubTableSeven ref="subTable" />
         </a-tab-pane>
         <a-tab-pane key="8" tab="Sub table 1">
-          <SubTableEight />
+          <SubTableEight ref="subTable" />
         </a-tab-pane>
       </a-tabs>
     </section>
 
     <section>
       <div class="flex flex-row justify-center">
-        <a-button>取消</a-button>
-        <a-button class="ms-10" type="primary">确定</a-button>
+        <a-button htmlType="reset">取消</a-button>
+        <a-button
+          @click="onClick"
+          htmlType="submit"
+          class="ms-10"
+          type="primary"
+          >确定</a-button
+        >
       </div>
     </section>
   </div>
@@ -56,4 +62,13 @@ import SubTableSeven from "./sub-table/sub-table7.vue";
 import SubTableEight from "./sub-table/sub-table8.vue";
 
 const activeKey = ref();
+const mainTable = ref();
+const subTable = ref();
+
+async function onClick() {
+  // const mainFormData = await mainTable.value.mainForm.validate();
+  // console.log(mainFormData);
+  const subFormData = await subTable.value.subForm.validate();
+  console.log(subFormData);
+}
 </script>
