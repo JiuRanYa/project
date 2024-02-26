@@ -27,10 +27,10 @@
             label="assignment"
             name="assignment"
             :rules="[
-              { required: true, message: 'Please input your password!' },
+              { required: true, message: 'Please input your assignment!' },
             ]"
           >
-            <a-input-password v-model:value="formState.assignment" />
+            <a-input v-model:value="formState.assignment" />
           </a-form-item>
         </a-col>
 

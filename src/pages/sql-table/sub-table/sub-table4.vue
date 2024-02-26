@@ -10,157 +10,53 @@
       @finishFailed="onFinishFailed"
     >
       <a-row :gutter="120">
-        <a-col :span="10">
+        <a-col :span="24">
           <a-form-item
-            label="ecno"
-            name="ecno"
-            :rules="[{ required: true, message: 'Please input your echo!' }]"
+            label="productionStage"
+            name="productionStage"
+            :rules="[
+              { required: true, message: 'Please input your productionStage!' },
+            ]"
           >
-            <a-input v-model:value="formState.ecno" />
+            <a-input v-model:value="formState.productionStage" />
           </a-form-item>
         </a-col>
       </a-row>
 
       <a-row :gutter="120">
-        <a-col :span="10">
+        <a-col :span="12">
           <a-form-item
-            label="assignment"
-            name="assignment"
+            label="executionObject"
+            name="executionObject"
             :rules="[
-              { required: true, message: 'Please input your password!' },
+              { required: true, message: 'Please input your executionObject!' },
             ]"
           >
-            <a-input-password v-model:value="formState.assignment" />
+            <a-input v-model:value="formState.executionObject" />
           </a-form-item>
         </a-col>
 
-        <a-col :span="10">
+        <a-col :span="12">
           <a-form-item
-            label="title"
-            name="title"
+            label="whatToDo"
+            name="whatToDo"
             :rules="[
-              { required: true, message: 'Please input your password!' },
+              { required: true, message: 'Please input your whatToDo!' },
             ]"
           >
-            <a-input v-model:value="formState.title" />
+            <a-input v-model:value="formState.whatToDo" />
           </a-form-item>
         </a-col>
       </a-row>
 
       <a-row :gutter="120">
-        <a-col :span="10">
+        <a-col :span="24">
           <a-form-item
-            label="createdBy"
-            name="createdBy"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
+            label="process"
+            name="process"
+            :rules="[{ required: true, message: 'Please input your process!' }]"
           >
-            <a-input v-model:value="formState.createdBy" />
-          </a-form-item>
-        </a-col>
-        <a-col :span="10">
-          <a-form-item
-            label="ecStatus"
-            name="ecStatus"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input v-model:value="formState.ecStatus" />
-          </a-form-item>
-        </a-col>
-      </a-row>
-
-      <a-row :gutter="120">
-        <a-col :span="10">
-          <a-form-item
-            label="modifyBy"
-            name="modifyBy"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input v-model:value="formState.modifyBy" />
-          </a-form-item>
-        </a-col>
-
-        <a-col :span="10">
-          <a-form-item
-            label="createdBy"
-            name="createdBy"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input v-model:value="formState.createdBy" />
-          </a-form-item>
-        </a-col>
-      </a-row>
-
-      <a-row :gutter="120">
-        <a-col :span="10">
-          <a-form-item
-            label="lastUpdateTime"
-            name="lastUpdateTime"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input v-model:value="formState.lastUpdateTime" />
-          </a-form-item>
-        </a-col>
-
-        <a-col :span="10">
-          <a-form-item
-            label="downloadBy"
-            name="downloadBy"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input v-model:value="formState.downloadBy" />
-          </a-form-item>
-        </a-col>
-      </a-row>
-
-      <a-row :gutter="120">
-        <a-col :span="10">
-          <a-form-item
-            label="downloadOn"
-            name="downloadOn"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input v-model:value="formState.downloadOn" />
-          </a-form-item>
-        </a-col>
-
-        <a-col :span="10">
-          <a-form-item
-            label="site"
-            name="site"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input v-model:value="formState.site" />
-          </a-form-item>
-        </a-col>
-      </a-row>
-
-      <a-row :gutter="120">
-        <a-col :span="20">
-          <a-form-item
-            class="w-100"
-            label="description"
-            name="description"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-textarea :rows="3" v-model:value="formState.description" />
+            <a-input v-model:value="formState.process" />
           </a-form-item>
         </a-col>
       </a-row>
@@ -171,35 +67,17 @@
 import { reactive } from "vue";
 
 interface FormState {
-  id: string;
-  ecno: string;
-  assignment: string;
-  title: string;
-  description: string;
-  ecStatus: string;
-  createdBy: string;
-  modifyBy: string;
-  creatd: string;
-  lastUpdateTime: string;
-  downloadBy: string;
-  downloadOn: string;
-  site: string;
+  productionStage: string;
+  executionObject: string;
+  whatToDo: string;
+  process: string;
 }
 
 const formState = reactive<FormState>({
-  id: "",
-  ecno: "",
-  assignment: "",
-  title: "",
-  description: "",
-  ecStatus: "",
-  createdBy: "",
-  modifyBy: "",
-  creatd: "",
-  lastUpdateTime: "",
-  downloadBy: "",
-  downloadOn: "",
-  site: "",
+  productionStage: "",
+  executionObject: "",
+  whatToDo: "",
+  process: "",
 });
 
 const onFinish = (values: any) => {

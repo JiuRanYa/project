@@ -1,8 +1,7 @@
-
 <template>
   <div class="p-4">
     <a-form
-			ref="subForm"
+      ref="subForm"
       :model="formState"
       name="basic"
       :label-col="{ style: { width: 100 } }"
@@ -11,167 +10,90 @@
       @finishFailed="onFinishFailed"
     >
       <a-row :gutter="120">
-        <a-col :span="10">
+        <a-col :span="24">
           <a-form-item
-            label="id"
-            name="id"
-            :rules="[{ required: true, message: 'Please input your id!' }]"
+            label="partNumber"
+            name="partNumber"
+            :rules="[
+              { required: true, message: 'Please input your partNumber!' },
+            ]"
           >
-            <a-input v-model:value="formState.id" />
-          </a-form-item>
-        </a-col>
-
-        <a-col :span="10">
-          <a-form-item
-            label="ecno"
-            name="ecno"
-            :rules="[{ required: true, message: 'Please input your echo!' }]"
-          >
-            <a-input v-model:value="formState.ecno" />
+            <a-input v-model:value="formState.partNumber" />
           </a-form-item>
         </a-col>
       </a-row>
 
       <a-row :gutter="120">
-        <a-col :span="10">
+        <a-col :span="12">
           <a-form-item
-            label="assignment"
-            name="assignment"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input-password v-model:value="formState.assignment" />
-          </a-form-item>
-        </a-col>
-
-        <a-col :span="10">
-          <a-form-item
-            label="title"
-            name="title"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input v-model:value="formState.title" />
-          </a-form-item>
-        </a-col>
-      </a-row>
-
-      <a-row :gutter="120">
-        <a-col :span="10">
-          <a-form-item
-            label="createdBy"
-            name="createdBy"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input v-model:value="formState.createdBy" />
-          </a-form-item>
-        </a-col>
-        <a-col :span="10">
-          <a-form-item
-            label="ecStatus"
-            name="ecStatus"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input v-model:value="formState.ecStatus" />
-          </a-form-item>
-        </a-col>
-      </a-row>
-
-      <a-row :gutter="120">
-        <a-col :span="10">
-          <a-form-item
-            label="modifyBy"
-            name="modifyBy"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input v-model:value="formState.modifyBy" />
-          </a-form-item>
-        </a-col>
-
-        <a-col :span="10">
-          <a-form-item
-            label="createdBy"
-            name="createdBy"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input v-model:value="formState.createdBy" />
-          </a-form-item>
-        </a-col>
-      </a-row>
-
-      <a-row :gutter="120">
-        <a-col :span="10">
-          <a-form-item
-            label="lastUpdateTime"
-            name="lastUpdateTime"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input v-model:value="formState.lastUpdateTime" />
-          </a-form-item>
-        </a-col>
-
-        <a-col :span="10">
-          <a-form-item
-            label="downloadBy"
-            name="downloadBy"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input v-model:value="formState.downloadBy" />
-          </a-form-item>
-        </a-col>
-      </a-row>
-
-      <a-row :gutter="120">
-        <a-col :span="10">
-          <a-form-item
-            label="downloadOn"
-            name="downloadOn"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input v-model:value="formState.downloadOn" />
-          </a-form-item>
-        </a-col>
-
-        <a-col :span="10">
-          <a-form-item
-            label="site"
-            name="site"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input v-model:value="formState.site" />
-          </a-form-item>
-        </a-col>
-      </a-row>
-
-      <a-row :gutter="120">
-        <a-col :span="20">
-          <a-form-item
-            class="w-100"
             label="description"
             name="description"
             :rules="[
-              { required: true, message: 'Please input your password!' },
+              { required: true, message: 'Please input your description!' },
             ]"
           >
-            <a-textarea :rows="3" v-model:value="formState.description" />
+            <a-textarea v-model:value="formState.description" />
+          </a-form-item>
+        </a-col>
+
+        <a-col :span="12">
+          <a-form-item
+            label="currentVersion"
+            name="currentVersion"
+            :rules="[
+              { required: true, message: 'Please input your currentVersion!' },
+            ]"
+          >
+            <a-input v-model:value="formState.currentVersion" />
+          </a-form-item>
+        </a-col>
+      </a-row>
+
+      <a-row :gutter="120">
+        <a-col :span="12">
+          <a-form-item
+            label="newVersion"
+            name="newVersion"
+            :rules="[
+              { required: true, message: 'Please input your newVersion!' },
+            ]"
+          >
+            <a-input v-model:value="formState.newVersion" />
+          </a-form-item>
+        </a-col>
+        <a-col :span="12">
+          <a-form-item
+            label="softwareType"
+            name="softwareType"
+            :rules="[
+              { required: true, message: 'Please input your softwareType!' },
+            ]"
+          >
+            <a-input v-model:value="formState.softwareType" />
+          </a-form-item>
+        </a-col>
+      </a-row>
+
+      <a-row :gutter="120">
+        <a-col :span="12">
+          <a-form-item
+            label="productionStage"
+            name="productionStage"
+            :rules="[
+              { required: true, message: 'Please input your productionStage!' },
+            ]"
+          >
+            <a-input v-model:value="formState.productionStage" />
+          </a-form-item>
+        </a-col>
+
+        <a-col :span="12">
+          <a-form-item
+            label="process"
+            name="process"
+            :rules="[{ required: true, message: 'Please input your process!' }]"
+          >
+            <a-input v-model:value="formState.process" />
           </a-form-item>
         </a-col>
       </a-row>
@@ -183,34 +105,24 @@ import { reactive } from "vue";
 
 interface FormState {
   id: string;
-  ecno: string;
-  assignment: string;
-  title: string;
+  partNumber: string;
   description: string;
-  ecStatus: string;
-  createdBy: string;
-  modifyBy: string;
-  creatd: string;
-  lastUpdateTime: string;
-  downloadBy: string;
-  downloadOn: string;
-  site: string;
+  currentVersion: string;
+  newVersion: string;
+  softwareType: string;
+  productionStage: string;
+  process: string;
 }
 
 const formState = reactive<FormState>({
   id: "",
-  ecno: "",
-  assignment: "",
-  title: "",
+  partNumber: "",
   description: "",
-  ecStatus: "",
-  createdBy: "",
-  modifyBy: "",
-  creatd: "",
-  lastUpdateTime: "",
-  downloadBy: "",
-  downloadOn: "",
-  site: "",
+  currentVersion: "",
+  newVersion: "",
+  softwareType: "",
+  productionStage: "",
+  process: "",
 });
 
 const onFinish = (values: any) => {
@@ -220,9 +132,9 @@ const onFinish = (values: any) => {
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
 };
-const subForm = ref()
+const subForm = ref();
 
 defineExpose({
-	subForm
-})
+  subForm,
+});
 </script>

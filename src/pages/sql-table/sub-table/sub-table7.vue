@@ -1,8 +1,7 @@
-
 <template>
   <div class="p-4">
     <a-form
-			ref="subForm"
+      ref="subForm"
       :model="formState"
       name="basic"
       :label-col="{ style: { width: 100 } }"
@@ -11,17 +10,7 @@
       @finishFailed="onFinishFailed"
     >
       <a-row :gutter="120">
-        <a-col :span="10">
-          <a-form-item
-            label="id"
-            name="id"
-            :rules="[{ required: true, message: 'Please input your id!' }]"
-          >
-            <a-input v-model:value="formState.id" />
-          </a-form-item>
-        </a-col>
-
-        <a-col :span="10">
+        <a-col :span="24">
           <a-form-item
             label="ecno"
             name="ecno"
@@ -33,7 +22,7 @@
       </a-row>
 
       <a-row :gutter="120">
-        <a-col :span="10">
+        <a-col :span="12">
           <a-form-item
             label="assignment"
             name="assignment"
@@ -45,7 +34,7 @@
           </a-form-item>
         </a-col>
 
-        <a-col :span="10">
+        <a-col :span="12">
           <a-form-item
             label="title"
             name="title"
@@ -59,7 +48,7 @@
       </a-row>
 
       <a-row :gutter="120">
-        <a-col :span="10">
+        <a-col :span="12">
           <a-form-item
             label="createdBy"
             name="createdBy"
@@ -70,7 +59,7 @@
             <a-input v-model:value="formState.createdBy" />
           </a-form-item>
         </a-col>
-        <a-col :span="10">
+        <a-col :span="12">
           <a-form-item
             label="ecStatus"
             name="ecStatus"
@@ -84,7 +73,7 @@
       </a-row>
 
       <a-row :gutter="120">
-        <a-col :span="10">
+        <a-col :span="12">
           <a-form-item
             label="modifyBy"
             name="modifyBy"
@@ -96,7 +85,7 @@
           </a-form-item>
         </a-col>
 
-        <a-col :span="10">
+        <a-col :span="12">
           <a-form-item
             label="createdBy"
             name="createdBy"
@@ -110,7 +99,7 @@
       </a-row>
 
       <a-row :gutter="120">
-        <a-col :span="10">
+        <a-col :span="12">
           <a-form-item
             label="lastUpdateTime"
             name="lastUpdateTime"
@@ -122,7 +111,7 @@
           </a-form-item>
         </a-col>
 
-        <a-col :span="10">
+        <a-col :span="12">
           <a-form-item
             label="downloadBy"
             name="downloadBy"
@@ -136,7 +125,7 @@
       </a-row>
 
       <a-row :gutter="120">
-        <a-col :span="10">
+        <a-col :span="12">
           <a-form-item
             label="downloadOn"
             name="downloadOn"
@@ -148,7 +137,7 @@
           </a-form-item>
         </a-col>
 
-        <a-col :span="10">
+        <a-col :span="12">
           <a-form-item
             label="site"
             name="site"
@@ -162,7 +151,7 @@
       </a-row>
 
       <a-row :gutter="120">
-        <a-col :span="20">
+        <a-col :span="24">
           <a-form-item
             class="w-100"
             label="description"
@@ -220,9 +209,9 @@ const onFinish = (values: any) => {
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
 };
-const subForm = ref()
+const subForm = ref();
 
 defineExpose({
-	subForm
-})
+  subForm,
+});
 </script>
